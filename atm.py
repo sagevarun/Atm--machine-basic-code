@@ -11,35 +11,39 @@ class Atm:
     def services(self):
         # Main menu loop for ATM services.
         while True:
-            options = int(input('''
-                Enter 1 for Balance Inquiry
-                Enter 2 for Withdrawal
-                Enter 3 for Deposit
-                Enter 4 for Pin Change
-                Enter 5 for Transaction History
-                Enter 0 to Exit
-                '''))
-            # Call the appropriate method based on user input.
-            if options == 1:
-                time.sleep(1)
-                self.balance_inquiry()
-            elif options == 2:
-                time.sleep(1)
-                self.withdraw()
-            elif options == 3:
-                time.sleep(1)
-                self.deposit()
-            elif options == 4:
-                time.sleep(1)
-                self.pin_change()
-            elif options == 5:
-                time.sleep(1)
-                self.transaction_history()
-            elif options == 0:
-                time.sleep(1)
-                break
-            else:
-                print("Invalid option. Please try again.")
+            try:
+                options = int(input('''
+                    Enter 1 for Balance Inquiry
+                    Enter 2 for Withdrawal
+                    Enter 3 for Deposit
+                    Enter 4 for Pin Change
+                    Enter 5 for Transaction History
+                    Enter 0 to Exit
+                    '''))
+                # Call the appropriate method based on user input.
+                if options == 1:
+                    time.sleep(1)
+                    self.balance_inquiry()
+                elif options == 2:
+                    time.sleep(1)
+                    self.withdraw()
+                elif options == 3:
+                    time.sleep(1)
+                    self.deposit()
+                elif options == 4:
+                    time.sleep(1)
+                    self.pin_change()
+                elif options == 5:
+                    time.sleep(1)
+                    self.transaction_history()
+                elif options == 0:
+                    time.sleep(1)
+                    break
+                else:
+                    print("Invalid option. Please try again.")
+            except ValueError:
+                print('Invalid input')
+                break        
     
     def balance_inquiry(self):
         # Print the current balance.
